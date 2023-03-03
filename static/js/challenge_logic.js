@@ -1,5 +1,5 @@
 // Add console.log to check to see if our code is working.
-console.log("working");
+console.log("working David");
 
 // We create the tile layer that will be the background of our map.
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -103,7 +103,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
   L.geoJson(data, {
     	// We turn each feature into a circleMarker on the map.
     	pointToLayer: function(feature, latlng) {
-      		console.log(data);
+      		// console.log(data);
       		return L.circleMarker(latlng);
         },
       // We set the style for each circleMarker using our styleInfo function.
@@ -118,7 +118,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
   // Then we add the earthquake layer to our map.
   allEarthquakes.addTo(map);
 
-// DElc2
+// Deliverable 2
 
 // 3. Retrieve the major earthquake GeoJSON data >4.5 mag for the week.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson").then(function(data) {
@@ -158,7 +158,7 @@ function getRadius(magnitude) {
 //  after the marker has been created and styled.
 L.geoJson(data, {
   pointToLayer: function(feature, latlng) {
-    console.log(data);
+    // console.log(data);
     return L.circleMarker(latlng);
   },
 style: styleInfo,
@@ -171,8 +171,7 @@ majorEQ.addTo(map)
 // 9. Close the braces and parentheses for the major earthquake data.
 });
 
-
-// END
+// End of deliverable 2
 
 
   // Here we create a legend control object.
@@ -183,8 +182,9 @@ let legend = L.control({
 // Then add all the details for the legend
 legend.onAdd = function() {
   let div = L.DomUtil.create("div", "info legend");
-
+  console.log(div)
   const magnitudes = [0, 1, 2, 3, 4, 5];
+  console.log(magnitudes)
   const colors = [
     "#98ee00",
     "#d4ee00",
@@ -203,7 +203,7 @@ legend.onAdd = function() {
     }
     return div;
   };
-
+ 
   // Finally, we our legend to the map.
   legend.addTo(map);
 
